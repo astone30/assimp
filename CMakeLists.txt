@@ -38,6 +38,15 @@ SET(CMAKE_POLICY_DEFAULT_CMP0012 NEW)
 SET(CMAKE_POLICY_DEFAULT_CMP0074 NEW)
 SET(CMAKE_POLICY_DEFAULT_CMP0092 NEW)
 
+
+SET(ASSIMP_BUILD_ALL_IMPORTERS_BY_DEFAULT FALSE)
+SET(ASSIMP_BUILD_ALL_EXPORTERS_BY_DEFAULT FALSE)
+
+SET(ASSIMP_BUILD_FBX_IMPORTER TRUE)
+SET(ASSIMP_BUILD_OBJ_IMPORTER TRUE)
+
+add_definitions(-DASSIMP_BUILD_NO_EXPORT)
+
 CMAKE_MINIMUM_REQUIRED( VERSION 3.10 )
 
 # Toggles the use of the hunter package manager
@@ -87,7 +96,7 @@ OPTION( ASSIMP_BUILD_ZLIB
 )
 OPTION( ASSIMP_BUILD_ASSIMP_TOOLS
   "If the supplementary tools for Assimp are built in addition to the library."
-  ON
+  OFF
 )
 OPTION ( ASSIMP_BUILD_SAMPLES
   "If the official samples are built as well (needs Glut)."
@@ -95,7 +104,7 @@ OPTION ( ASSIMP_BUILD_SAMPLES
 )
 OPTION ( ASSIMP_BUILD_TESTS
   "If the test suite for Assimp is built in addition to the library."
-  ON
+  OFF
 )
 OPTION ( ASSIMP_COVERALLS
   "Enable this to measure test coverage."
@@ -103,7 +112,7 @@ OPTION ( ASSIMP_COVERALLS
 )
 OPTION( ASSIMP_INSTALL
   "Disable this if you want to use assimp as a submodule."
-  ON
+  OFF
 )
 OPTION ( ASSIMP_ERROR_MAX
   "Enable all warnings."
@@ -123,7 +132,7 @@ OPTION ( ASSIMP_BUILD_DOCS
 )
 OPTION( ASSIMP_INJECT_DEBUG_POSTFIX
   "Inject debug postfix in .a/.so/.dll lib names"
-  ON
+  OFF
 )
 
 OPTION ( ASSIMP_IGNORE_GIT_HASH
